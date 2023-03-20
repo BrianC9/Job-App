@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
   tab: (activeJobType, item) => ({
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
-    borderRadius: SIZES.medium,
+    borderRadius: SIZES.small,
     borderWidth: 1,
-    borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+    borderColor: activeJobType === item ? COLORS.tertiary : COLORS.gray2,
   }),
   tabText: (activeJobType, item) => ({
     fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+    color: activeJobType === item ? COLORS.tertiary : COLORS.gray2,
   }),
 });
 

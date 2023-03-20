@@ -18,14 +18,15 @@ export default function Home() {
       style={{
         flex: 1,
         padding: SIZES.medium,
-        backgroundColor: COLORS.gray2,
+        backgroundColor: COLORS.lightWhite,
       }}
     >
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: COLORS.gray,
+            backgroundColor: COLORS.lightWhite,
           },
+
           headerTitle: '',
           headerShadowVisible: false,
           headerLeft: () => (
