@@ -12,19 +12,13 @@ import { useRouter } from 'expo-router';
 import styles from './welcome.style';
 import { Alert } from 'react-native';
 const jobTypes = ['All', 'Full-time', 'Part-time', 'Contractor'];
-const Welcome = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+const Welcome = ({searchQuery,handleChangeSearchQuery,handleSearch}) => {
   const [activeJobType, setActiveJobType] = useState('all');
   const router = useRouter();
   const handlePressTab = (item) => {
     console.log(item);
   };
-  const handleChangeQuery = (e) => {
-    setSearchQuery(e);
-  };
-  const handleSearchQuery = () => {
-    Alert.alert(searchQuery);
-  };
+  
   return (
     <View>
       <View style={styles.container}>
@@ -36,11 +30,11 @@ const Welcome = () => {
           <TextInput
             style={styles.searchInput}
             value={searchQuery}
-            onChangeText={handleChangeQuery}
+            onChangeText={handleChangeSearchQuery}
             placeholder='FullStack Engineer, Project Manager...'
           />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={handleSearchQuery}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleSearch}>
           <Image
             source={icons.search}
             style={styles.searchBtnImage}

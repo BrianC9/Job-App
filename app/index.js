@@ -12,6 +12,14 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleChangeQuery = (e) => {
+    setSearchQuery(e);
+  };
+  const handleSearch = () => {
+    Alert.alert(searchQuery);
+  };
   const handlePress = (e) => {};
   return (
     <SafeAreaView
@@ -51,8 +59,8 @@ export default function Home() {
           backgroundColor: COLORS.lightWhite,
         }}
       >
-        <Welcome />
-        <Popularjobs />
+        <Welcome searchQuery={searchQuery} handleChangeSearchQuery={handleChangeQuery} handleSearch={handleSearch} />
+        <Popularjobs searchQuery={searchQuery} />
         <Nearbyjobs />
       </ScrollView>
     </SafeAreaView>
