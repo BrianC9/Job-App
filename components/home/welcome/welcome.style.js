@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   tabsContainer: {
     width: '100%',
-    marginTop: SIZES.medium,
+    marginTop:SIZES.medium
   },
   tab: (activeJobType, item) => ({
     paddingVertical: SIZES.small / 2,
@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.small,
     borderWidth: 1,
     borderColor: activeJobType === item ? COLORS.tertiary : COLORS.gray2,
+    marginBottom:SIZES.small
+
   }),
   tabText: (activeJobType, item) => ({
     fontFamily: FONT.medium,
