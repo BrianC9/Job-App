@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     marginTop: SIZES.xLarge,
   },
   header: {
@@ -23,6 +24,8 @@ const styles = StyleSheet.create({
     color: COLORS.gray,
   },
   cardsContainer: {
+    width: "100%",
+
     marginTop: SIZES.medium,
     gap: SIZES.small,
   },

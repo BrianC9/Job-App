@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,19 +6,20 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
-} from 'react-native';
-import { icons, SIZES } from '../../../constants';
-import { useRouter } from 'expo-router';
-import styles from './welcome.style';
-import { Alert } from 'react-native';
-const jobTypes = ['All', 'Full-time', 'Part-time', 'Contractor'];
-const Welcome = ({searchQuery,handleChangeSearchQuery,handleSearch}) => {
-  const [activeJobType, setActiveJobType] = useState('all');
+  ScrollView,
+} from "react-native";
+import { icons, SIZES } from "../../../constants";
+import { useRouter } from "expo-router";
+import styles from "./welcome.style";
+import { Alert } from "react-native";
+const jobTypes = ["All", "Full-time", "Part-time", "Contractor"];
+const Welcome = ({ searchQuery, handleChangeSearchQuery, handleSearch }) => {
+  const [activeJobType, setActiveJobType] = useState("all");
   const router = useRouter();
   const handlePressTab = (item) => {
     console.log(item);
   };
-  
+
   return (
     <View>
       <View style={styles.container}>
@@ -31,18 +32,18 @@ const Welcome = ({searchQuery,handleChangeSearchQuery,handleSearch}) => {
             style={styles.searchInput}
             value={searchQuery}
             onChangeText={handleChangeSearchQuery}
-            placeholder='FullStack Engineer, Project Manager...'
+            placeholder="FullStack Engineer, Project Manager..."
           />
         </View>
         <TouchableOpacity style={styles.searchBtn} onPress={handleSearch}>
           <Image
             source={icons.search}
             style={styles.searchBtnImage}
-            resizeMode='contain'
+            resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
-      <View style={styles.tabsContainer}>
+      <ScrollView horizontal={true} style={styles.tabsContainer}>
         <FlatList
           data={jobTypes}
           renderItem={({ item }) => (
@@ -62,7 +63,7 @@ const Welcome = ({searchQuery,handleChangeSearchQuery,handleSearch}) => {
           horizontal
           contentContainerStyle={{ columnGap: SIZES.small }}
         />
-      </View>
+      </ScrollView>
     </View>
   );
 };

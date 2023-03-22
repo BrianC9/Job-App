@@ -1,18 +1,18 @@
-import { View, Text, SafeAreaView } from 'react-native';
-import { useState } from 'react';
-import { Stack, useRouter } from 'expo-router';
+import { View, Text, SafeAreaView } from "react-native";
+import { useState } from "react";
+import { Stack, useRouter } from "expo-router";
 
-import { COLORS, SIZES, icons, images } from '../constants';
+import { COLORS, SIZES, icons, images } from "../constants";
 import {
   Popularjobs,
   Nearbyjobs,
   ScreenHeaderBtn,
   Welcome,
-} from '../components';
-import { ScrollView } from 'react-native-gesture-handler';
+} from "../components";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleChangeQuery = (e) => {
     setSearchQuery(e);
@@ -35,19 +35,19 @@ export default function Home() {
             backgroundColor: COLORS.lightWhite,
           },
 
-          headerTitle: '',
+          headerTitle: "",
           headerShadowVisible: false,
           headerLeft: () => (
             <ScreenHeaderBtn
               iconUrl={icons.menu}
-              dimension='60%'
+              dimension="60%"
               handlePress={handlePress}
             />
           ),
           headerRight: () => (
             <ScreenHeaderBtn
               iconUrl={images.profile}
-              dimension='100%'
+              dimension="100%"
               handlePress={handlePress}
             />
           ),
@@ -58,8 +58,13 @@ export default function Home() {
           flex: 1,
           backgroundColor: COLORS.lightWhite,
         }}
+        showsVerticalScrollIndicator={false}
       >
-        <Welcome searchQuery={searchQuery} handleChangeSearchQuery={handleChangeQuery} handleSearch={handleSearch} />
+        <Welcome
+          searchQuery={searchQuery}
+          handleChangeSearchQuery={handleChangeQuery}
+          handleSearch={handleSearch}
+        />
         <Popularjobs searchQuery={searchQuery} />
         <Nearbyjobs />
       </ScrollView>
