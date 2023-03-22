@@ -39,17 +39,15 @@ const Popularjobs = ({ searchQuery }) => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          <ScrollView horizontal={true}>
-            <FlatList
-              data={localeJobsMock}
-              renderItem={({ item }) => (
-                <PopularJobCard handleCardPress={handleCardPress} item={item} />
-              )}
-              keyExtractor={(item) => item.job_id}
-              contentContainerStyle={{ columnGap: SIZES.medium }}
-              horizontal
-            />
-          </ScrollView>
+          <FlatList
+            data={localeJobsMock}
+            renderItem={({ item }) => (
+              <PopularJobCard handleCardPress={handleCardPress} item={item} />
+            )}
+            keyExtractor={(item) => item.job_id}
+            contentContainerStyle={{ columnGap: SIZES.medium }}
+            horizontal
+          />
         )}
       </View>
     </View>
