@@ -22,7 +22,6 @@ const Popularjobs = ({ searchQuery }) => {
   // });
   const error = false;
   const isLoading = false;
-  const handleCardPress = (item) => {};
 
   return (
     <View style={styles.container}>
@@ -42,7 +41,12 @@ const Popularjobs = ({ searchQuery }) => {
           <FlatList
             data={localeJobsMock}
             renderItem={({ item }) => (
-              <PopularJobCard handleCardPress={handleCardPress} item={item} />
+              <PopularJobCard
+                item={item}
+                handleNavigateCard={() =>
+                  router.push(`/job-details/${item.job_id}`)
+                }
+              />
             )}
             keyExtractor={(item) => item.job_id}
             contentContainerStyle={{ columnGap: SIZES.medium }}

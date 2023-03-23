@@ -21,6 +21,7 @@ import { useFetch } from "../../hooks/useFetch";
 function Id() {
   const router = useRouter();
   const params = useSearchParams();
+  // const {data,isLoading, error,refetch} = useFetch
   const job = localeJobsMock.find((item) => item.job_id === params.id);
   return (
     <View>

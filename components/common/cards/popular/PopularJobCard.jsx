@@ -4,16 +4,13 @@ import { checkImageURL } from "../../../../utils/checkImage";
 
 import styles from "./popularjobcard.style";
 
-const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
+const PopularJobCard = ({ item, selectedJob, handleNavigateCard }) => {
   return (
     <TouchableOpacity
       style={styles.container(selectedJob, item)}
-      onPress={() => handleCardPress(item)}
+      onPress={handleNavigateCard}
     >
-      <TouchableOpacity
-        style={styles.logoContainer(selectedJob, item)}
-        onPress={handleCardPress(item)}
-      >
+      <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
         <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
           <Image
             style={styles.logoImage}
