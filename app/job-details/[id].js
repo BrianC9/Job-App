@@ -30,14 +30,14 @@ function Id() {
   const [activeTab, setActiveTab] = useState(TABS[0]);
   const router = useRouter();
   const params = useSearchParams();
-  // const isLoading = false;
-  // const error = false;
-  // const job = localeJobsMock.find((item) => item.job_id === params.id);
-  // const data = [job];
-  const { data, isLoading, error, refetch } = useFetch({
-    endpoint: "job-details",
-    query: { job_id: params.id },
-  });
+  const isLoading = false;
+  const error = false;
+  const job = localeJobsMock.find((item) => item.job_id === params.id);
+  const data = [job];
+  // const { data, isLoading, error, refetch } = useFetch({
+  //   endpoint: "job-details",
+  //   query: { job_id: params.id },
+  // });
   const handleRefresh = () => {};
 
   const handleShare = async (jobLink) => {
@@ -106,10 +106,14 @@ function Id() {
                 setActiveTab={setActiveTab}
               />
               <InfoTabs activeTab={activeTab} job={data[0]} />
-              <Footer />
             </View>
           )}
         </ScrollView>
+        <JobFooter
+          url={
+            data[0].job_google_link ?? "https://careers.google.com/jobs/results"
+          }
+        />
       </>
     </SafeAreaView>
   );

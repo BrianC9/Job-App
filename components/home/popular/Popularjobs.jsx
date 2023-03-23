@@ -16,12 +16,13 @@ import { jobsMock, localeJobsMock } from "../../../mocks/jobs";
 import { ScrollView } from "react-native-gesture-handler";
 const Popularjobs = ({ searchQuery }) => {
   const router = useRouter();
-  const { data, error, isLoading } = useFetch({
-    endpoint: "search",
-    query: { query: "Junior developer", num_pages: 1 },
-  });
-  // const error = false;
-  // const isLoading = false;
+  // const { data, error, isLoading } = useFetch({
+  //   endpoint: "search",
+  //   query: { query: "Junior developer", num_pages: 1 },
+  // });
+  const data = localeJobsMock;
+  const error = false;
+  const isLoading = false;
 
   return (
     <View style={styles.container}>
