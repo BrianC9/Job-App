@@ -13,12 +13,16 @@ import { ScrollView } from "react-native-gesture-handler";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-
+  const router = useRouter();
   const handleChangeQuery = (e) => {
     setSearchQuery(e);
   };
   const handleSearch = () => {
-    Alert.alert(searchQuery);
+    if (searchQuery.trim().length < 3) {
+      alert("Introduce 3 chars at least");
+      return;
+    }
+    router.push(`/search/${searchQuery}`);
   };
   const handlePress = (e) => {};
   return (
