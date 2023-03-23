@@ -36,7 +36,9 @@ function InfoTabs({ activeTab, job }) {
       );
       break;
     default:
-      return <JobAbout />;
+      return (
+        <JobAbout info={job?.job_description ?? "No description especified"} />
+      );
       break;
   }
 }
