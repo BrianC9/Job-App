@@ -1,4 +1,4 @@
-export const jobsMock = [
+export const localeJobsMock = [
   {
     employer_name: "Epic",
     employer_logo:
@@ -795,7 +795,7 @@ export const jobsMock = [
     job_job_title: "Experience designer",
   },
 ];
-export const localeJobsMock = [
+export const jobsMock = [
   {
     employer_name: "DCSL GuideSmiths",
     employer_logo:

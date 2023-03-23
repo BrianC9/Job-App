@@ -8,6 +8,7 @@ import {
   RefreshControl,
   SafeAreaView,
   Share,
+  Button,
 } from "react-native";
 import { localeJobsMock } from "../../mocks/jobs";
 import {
@@ -20,9 +21,13 @@ import {
 } from "../../components";
 import { COLORS, SIZES, icons } from "../../constants";
 import { useFetch } from "../../hooks/useFetch";
-const TABS = ["About", "Qualifications", "Responsibilities"];
+import Footer from "../../components/jobdetails/footer/Footer";
+import About from "../../components/jobdetails/about/About";
+import InfoTabs from "../../components/jobdetails/tabs/InfoTabs";
+const TABS = ["About", "Qualifications", "Responsibilities", "Benefits"];
 function Id() {
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(TABS[0]);
   const router = useRouter();
   const params = useSearchParams();
   // const {data,isLoading, error,refetch} = useFetch
@@ -92,7 +97,13 @@ function Id() {
                 companyName={data[0].employer_name}
                 location={data[0].job_country}
               />
-              <JobTabs />
+              <JobTabs
+                TABS={TABS}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+              <InfoTabs activeTab={activeTab} job={data[0]} />
+              <Footer />
             </View>
           )}
         </ScrollView>
