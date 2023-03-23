@@ -20,6 +20,7 @@ import {
 } from "../../components";
 import { COLORS, SIZES, icons } from "../../constants";
 import { useFetch } from "../../hooks/useFetch";
+const TABS = ["About", "Qualifications", "Responsibilities"];
 function Id() {
   const [refreshing, setRefreshing] = useState(false);
   const router = useRouter();

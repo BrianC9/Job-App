@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { icons } from "../../../constants";
 import { checkImageURL } from "../../../utils/checkImage";
 
 import styles from "./company.style";
-
 const Company = ({ companyLogo, companyName, jobTitle, location }) => {
   return (
     <View style={styles.container}>
@@ -18,9 +18,20 @@ const Company = ({ companyLogo, companyName, jobTitle, location }) => {
           resizeMode="contain"
         />
       </View>
-      <Text style={styles.jobTitle}>{jobTitle}</Text>
-      <Text style={styles.companyName}>{companyName}</Text>
-      <Text style={styles.locationName}>{location}</Text>
+      <View style={styles.jobTitleBox}>
+        <Text style={styles.jobTitle}>{jobTitle}</Text>
+      </View>
+      <View style={styles.companyInfoBox}>
+        <Text style={styles.companyName}>{companyName} / </Text>
+        <View style={styles.locationBox}>
+          <Image
+            source={icons.location}
+            resizeMode="contain"
+            style={styles.locationImage}
+          />
+          <Text style={styles.locationName}>{location}</Text>
+        </View>
+      </View>
     </View>
   );
 };
