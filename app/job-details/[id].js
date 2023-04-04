@@ -1,29 +1,23 @@
-import { useSearchParams, Stack, useRouter } from "expo-router";
-import { useCallback, useState } from "react";
+import { Stack, useRouter, useSearchParams } from "expo-router";
+import { useState } from "react";
 import {
-  Text,
-  View,
-  ScrollView,
   ActivityIndicator,
   RefreshControl,
   SafeAreaView,
+  ScrollView,
   Share,
-  Button,
+  Text,
+  View
 } from "react-native";
-import { localeJobsMock } from "../../mocks/jobs";
 import {
   Company,
-  JobAbout,
   JobFooter,
   JobTabs,
-  ScreenHeaderBtn,
-  Specifics,
+  ScreenHeaderBtn
 } from "../../components";
+import InfoTabs from "../../components/jobdetails/tabs/InfoTabs";
 import { COLORS, SIZES, icons } from "../../constants";
 import { useFetch } from "../../hooks/useFetch";
-import Footer from "../../components/jobdetails/footer/Footer";
-import About from "../../components/jobdetails/about/About";
-import InfoTabs from "../../components/jobdetails/tabs/InfoTabs";
 const TABS = ["About", "Qualifications", "Responsibilities", "Benefits"];
 function Id() {
   const [refreshing, setRefreshing] = useState(false);
@@ -111,7 +105,7 @@ function Id() {
         </ScrollView>
         <JobFooter
           url={
-            data[0].job_google_link ?? "https://careers.google.com/jobs/results"
+            data[0]?.job_google_link ?? "https://careers.google.com/jobs/results"
           }
         />
       </>
