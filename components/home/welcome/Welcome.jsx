@@ -1,21 +1,31 @@
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-  View,
+  FlatList,
+  Image,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  Image,
-  FlatList,
-  ScrollView,
+  View,
 } from "react-native";
-import { icons, SIZES } from "../../../constants";
-import { useRouter } from "expo-router";
+import { SIZES, icons } from "../../../constants";
 import styles from "./welcome.style";
-import { Alert } from "react-native";
-const jobTypes = ["All", "Full-time", "Part-time", "Contractor"];
-const Welcome = ({ searchQuery, handleChangeSearchQuery, handleSearch }) => {
+const jobTypes = ["Full-time", "Part-time", "Contractor"];
+const Welcome = () => {
   const [activeJobType, setActiveJobType] = useState("all");
   const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+ const handleChangeQuery = (e) => {
+    setSearchQuery(e);
+  };
+  const handleSearch = () => {
+    if (searchQuery.trim().length < 3) {
+      alert("Introduce 3 chars at least");
+      return;
+    }
+    router.push(`/search/${searchQuery}`);
+  };
   const handlePressTab = (item) => {
     console.log(item);
   };
@@ -31,7 +41,7 @@ const Welcome = ({ searchQuery, handleChangeSearchQuery, handleSearch }) => {
           <TextInput
             style={styles.searchInput}
             value={searchQuery}
-            onChangeText={handleChangeSearchQuery}
+            onChangeText={handleChangeQuery}
             placeholder="FullStack Engineer, Project Manager..."
           />
         </View>
@@ -43,7 +53,7 @@ const Welcome = ({ searchQuery, handleChangeSearchQuery, handleSearch }) => {
           />
         </TouchableOpacity>
       </View>
-      <ScrollView horizontal={true} style={styles.tabsContainer}>
+      <ScrollView  style={styles.tabsContainer}>
         <FlatList
           data={jobTypes}
           renderItem={({ item }) => (
@@ -62,6 +72,7 @@ const Welcome = ({ searchQuery, handleChangeSearchQuery, handleSearch }) => {
           keyExtractor={(item) => item}
           horizontal
           contentContainerStyle={{ columnGap: SIZES.small }}
+          
         />
       </ScrollView>
     </View>
